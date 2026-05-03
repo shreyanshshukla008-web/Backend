@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <div class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="page-subtitle">View all blog posts below.</p>
+      </div>
+
+      <div class="actions">
+        <a href="/create-post?<%= new URLSearchParams({ token }).toString() %>" class="btn">Create Post</a>
+        <a href="/" class="btn btn-secondary">Logout</a>
+      </div>
+    </div>
+
+    <% if (posts.length === 0) { %>
+      <div class="empty-message">
+        <p>No posts found. Create your first post.</p>
+      </div>
+    <% } else { %>
+      <section class="post-list">
+        <% posts.forEach(post => { %>
+          <article class="post-item">
+            <h2><%= post.title %></h2>
+            <p><%= post.content %></p>
+            <div class="post-meta">By: <%= post.author ? post.author.name : "Unknown" %></div>
+          </article>
+        <% }) %>
+      </section>
+    <% } %>
+  </main>
+</body>
+</html>

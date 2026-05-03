@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Post</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1 class="page-title">Create New Post</h1>
+      <p class="page-subtitle">Write a title and content, then publish it to the dashboard.</p>
+
+      <form method="POST" action="/create-post">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input id="title" type="text" name="title" placeholder="Post title" required />
+        </div>
+
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea id="content" name="content" placeholder="Write your content here..." required></textarea>
+        </div>
+
+        <input type="hidden" name="token" value="<%= token %>" />
+
+        <div class="actions">
+          <button type="submit" class="btn">Publish</button>
+          <a href="/dashboard?<%= new URLSearchParams({ token }).toString() %>">Back to Dashboard</a>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

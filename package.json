@@ -1,0 +1,9 @@
+{
+  "name": "dev-connect-workspace",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix ./Dev_connect_blogs/BLOG-PROJECT start",
+    "dev": "npm --prefix ./Dev_connect_blogs/BLOG-PROJECT run dev",
+    "install:blog": "npm --prefix ./Dev_connect_blogs/BLOG-PROJECT install"
+  }
+}
